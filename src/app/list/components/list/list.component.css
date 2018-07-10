@@ -1,0 +1,9 @@
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+app-card {
+    padding: 30px;
+}

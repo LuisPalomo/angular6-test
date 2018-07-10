@@ -1,3 +1,6 @@
 <ng-container *ngFor="let post of posts$ | async">
-  <app-card></app-card>
+  <app-card [cardTitle]="post.title"
+            [cardContent]="post.content"
+            [cardImageUrl]="post.image_url">
+  </app-card>
 </ng-container>

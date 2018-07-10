@@ -7,3 +7,7 @@ body {
 body {
   margin: 0;
 }
+
+.mat-toolbar {
+  z-index: 2;
+}
