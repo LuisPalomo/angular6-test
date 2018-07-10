@@ -1,3 +1,3 @@
-<p>
-  list works!
-</p>
+<ng-container *ngFor="let post of posts$ | async">
+  <app-card></app-card>
+</ng-container>
