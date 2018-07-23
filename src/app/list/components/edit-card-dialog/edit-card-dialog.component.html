@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Edit Post - ID: {{ post.id }}</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="post.title" placeholder="Title">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="post.content" placeholder="Content">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="post.lat" placeholder="Latitude">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="post.long" placeholder="Longitude">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="post.image_url" placeholder="Image URL">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="post">Ok</button>
+</div>

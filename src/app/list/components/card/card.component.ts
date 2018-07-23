@@ -1,18 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material';
+
+import { Post } from '../../../core/services/post.service';
+import { EditCardDialogComponent } from '../edit-card-dialog/edit-card-dialog.component';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
-  @Input() cardTitle: string;
-  @Input() cardContent: string;
-  @Input() cardImageUrl: string;
+export class CardComponent {
+  @Input() post: Post;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
 
-  ngOnInit() {
+  openEditDialog(): void {
+    const dialogRef = this.dialog.open(EditCardDialogComponent, {
+      width: '300px',
+      data: this.post
+    });
   }
-
 }
