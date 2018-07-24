@@ -1,8 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { MatDialog } from '@angular/material';
 
 import { Post } from '../../../core/interfaces/post.interface';
-import { EditCardDialogComponent } from '../edit-card-dialog/edit-card-dialog.component';
 
 @Component({
   selector: 'app-card',
@@ -11,20 +9,16 @@ import { EditCardDialogComponent } from '../edit-card-dialog/edit-card-dialog.co
 })
 export class CardComponent {
   @Input() post: Post;
-  @Output() editCard: EventEmitter<Post> = new EventEmitter<Post>();
+  @Output() editButtonClicked: EventEmitter<Post> = new EventEmitter<Post>();
+  @Output() removeButtonClicked: EventEmitter<Post> = new EventEmitter<Post>();
 
-  constructor(public dialog: MatDialog) {}
+  constructor() {}
 
-  openEditDialog(): void {
-    const dialogRef = this.dialog.open(EditCardDialogComponent, {
-      width: '300px',
-      data: this.post,
-    });
+  clickEditButton() {
+    this.editButtonClicked.emit(this.post);
+  }
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.editCard.emit(result);
-      }
-    });
+  clickRemoveButton() {
+    this.removeButtonClicked.emit(this.post);
   }
 }

@@ -16,8 +16,12 @@ export class PostService {
     return this.httpClient.get<Post[]>(this.apiUrl);
   }
 
-  updatePost(post: Post): Observable<Post> {
-    return this.httpClient.put<Post>(`${this.apiUrl}/${post.id}`, { post: this.toPayload(post) });
+  updatePost(post: Post): Observable<any> {
+    return this.httpClient.put(`${this.apiUrl}/${post.id}`, { post: this.toPayload(post) });
+  }
+
+  removePost(postId: string): Observable<any> {
+    return this.httpClient.delete(`${this.apiUrl}/${postId}`);
   }
 
   private toPayload({ id, created_at, updated_at, ...payload }: Post): PostPayload {

@@ -1,6 +1,7 @@
 <ng-container *ngFor="let post of posts$ | async">
   <app-card [post]="post"
-            (editCard)="onEditCard($event)">
+            (editButtonClicked)="onEditCard($event)"
+            (removeButtonClicked)="onRemoveCard($event)">
   </app-card>
 </ng-container>
 
