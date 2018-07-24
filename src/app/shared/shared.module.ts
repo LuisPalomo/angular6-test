@@ -4,6 +4,7 @@ import { MatToolbarModule, MatIconModule, MatButtonModule, MatSidenavModule, Mat
 import { LayoutModule } from '@angular/cdk/layout';
 
 import { FabButtonComponent } from './components/fab-button/fab-button.component';
+import { ToNumberPipe } from './pipes/to-number.pipe';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { FabButtonComponent } from './components/fab-button/fab-button.component
   ],
   declarations: [
     FabButtonComponent,
+    ToNumberPipe,
   ],
   exports: [
     MatToolbarModule,
@@ -37,6 +39,7 @@ import { FabButtonComponent } from './components/fab-button/fab-button.component
     MatSnackBarModule,
     FabButtonComponent,
     MatMenuModule,
+    ToNumberPipe,
   ],
 })
 export class SharedModule { }

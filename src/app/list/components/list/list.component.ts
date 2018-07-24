@@ -13,6 +13,7 @@ import { RemovePostDialogComponent } from '../remove-post-dialog/remove-post-dia
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+
   posts$: Observable<Post[]>;
 
   constructor(
