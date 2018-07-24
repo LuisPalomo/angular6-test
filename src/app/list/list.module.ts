@@ -7,6 +7,7 @@ import { ListComponent } from './components/list/list.component';
 import { CardComponent } from './components/card/card.component';
 import { EditCardDialogComponent } from './components/edit-card-dialog/edit-card-dialog.component';
 import { SharedModule } from '../shared/shared.module';
+import { RemovePostDialogComponent } from './components/remove-post-dialog/remove-post-dialog.component';
 
 @NgModule({
   imports: [
@@ -19,9 +20,11 @@ import { SharedModule } from '../shared/shared.module';
     ListComponent,
     CardComponent,
     EditCardDialogComponent,
+    RemovePostDialogComponent,
   ],
   entryComponents: [
     EditCardDialogComponent,
+    RemovePostDialogComponent,
   ]
 })
 export class ListModule {}

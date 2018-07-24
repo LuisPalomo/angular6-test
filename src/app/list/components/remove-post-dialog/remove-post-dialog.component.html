@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Remove Post - ID: {{ post.id }}</h1>
+<div mat-dialog-content>
+  <p>Do you really want to remove {{ post.title }} post?</p>
+  <p>(This action cannot be undone)</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">Cancel</button>
+  <button mat-button [mat-dialog-close]="true">Ok</button>
+</div>
