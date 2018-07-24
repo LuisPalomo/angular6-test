@@ -1,18 +1,18 @@
 export interface Post {
-  id: string;
-  title: string;
-  content: string;
-  created_at: string;
-  updated_at: string;
-  lat: string;
-  long: string;
-  image_url: string;
+  id?: string;
+  title?: string;
+  content?: string;
+  created_at?: string;
+  updated_at?: string;
+  lat?: string;
+  long?: string;
+  image_url?: string;
 }
 
 export interface PostPayload {
-  title: string;
-  content: string;
-  lat: string;
-  long: string;
-  image_url: string;
+  title?: string;
+  content?: string;
+  lat?: string;
+  long?: string;
+  image_url?: string;
 }

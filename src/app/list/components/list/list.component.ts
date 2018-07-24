@@ -52,7 +52,15 @@ export class ListComponent implements OnInit {
   }
 
   onAddButtonClicked() {
+    const dialogRef = this.dialog.open(EditPostDialogComponent, {
+      width: '300px',
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.createPost(result);
+      }
+    });
   }
 
   private updatePost(post: Post) {
@@ -71,6 +79,16 @@ export class ListComponent implements OnInit {
         this.requestResult('SUCCESS', 'Post removed successfully! :)');
       }, (error) => {
         this.requestResult('ERROR', 'Error removing post! :(');
+      }
+    );
+  }
+
+  private createPost(post: Post) {
+    this.postService.createPost(post).subscribe(
+      (success) => {
+        this.requestResult('SUCCESS', 'Post created successfully! :)');
+      }, (error) => {
+        this.requestResult('ERROR', 'Error creating post! :(');
       }
     );
   }

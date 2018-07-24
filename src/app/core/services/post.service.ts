@@ -24,6 +24,10 @@ export class PostService {
     return this.httpClient.delete(`${this.apiUrl}/${postId}`);
   }
 
+  createPost(post: Post): Observable<any> {
+    return this.httpClient.post(this.apiUrl, { post: this.toPayload(post) });
+  }
+
   private toPayload({ id, created_at, updated_at, ...payload }: Post): PostPayload {
     return payload;
   }

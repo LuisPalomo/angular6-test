@@ -18,7 +18,11 @@ export class EditPostDialogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.post = { ...this.data };
+    if (this.data) {
+      this.post = { ...this.data };
+    } else {
+      this.post = {};
+    }
   }
 
   onCancelClick(): void {
