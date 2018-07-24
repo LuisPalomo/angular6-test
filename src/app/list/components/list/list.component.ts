@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Post } from '../../../core/interfaces/post.interface';
 import { PostService } from '../../../core/services/post.service';
-import { EditCardDialogComponent } from '../edit-card-dialog/edit-card-dialog.component';
+import { EditPostDialogComponent } from '../edit-post-dialog/edit-post-dialog.component';
 import { RemovePostDialogComponent } from '../remove-post-dialog/remove-post-dialog.component';
 
 @Component({
@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
   }
 
   onEditCard(post: Post) {
-    const dialogRef = this.dialog.open(EditCardDialogComponent, {
+    const dialogRef = this.dialog.open(EditPostDialogComponent, {
       width: '300px',
       data: post,
     });

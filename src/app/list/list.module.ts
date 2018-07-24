@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ListRoutingModule } from './list-routing.module';
 import { ListComponent } from './components/list/list.component';
 import { CardComponent } from './components/card/card.component';
-import { EditCardDialogComponent } from './components/edit-card-dialog/edit-card-dialog.component';
+import { EditPostDialogComponent } from './components/edit-post-dialog/edit-post-dialog.component';
 import { SharedModule } from '../shared/shared.module';
 import { RemovePostDialogComponent } from './components/remove-post-dialog/remove-post-dialog.component';
 
@@ -19,11 +19,11 @@ import { RemovePostDialogComponent } from './components/remove-post-dialog/remov
   declarations: [
     ListComponent,
     CardComponent,
-    EditCardDialogComponent,
+    EditPostDialogComponent,
     RemovePostDialogComponent,
   ],
   entryComponents: [
-    EditCardDialogComponent,
+    EditPostDialogComponent,
     RemovePostDialogComponent,
   ]
 })

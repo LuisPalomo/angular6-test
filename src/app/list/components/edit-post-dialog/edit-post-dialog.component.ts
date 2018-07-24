@@ -4,16 +4,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Post } from '../../../core/interfaces/post.interface';
 
 @Component({
-  selector: 'app-edit-card-dialog',
-  templateUrl: './edit-card-dialog.component.html',
-  styleUrls: ['./edit-card-dialog.component.css']
+  selector: 'app-edit-post-dialog',
+  templateUrl: './edit-post-dialog.component.html',
+  styleUrls: ['./edit-post-dialog.component.css']
 })
-export class EditCardDialogComponent implements OnInit {
+export class EditPostDialogComponent implements OnInit {
 
   post: Post;
 
   constructor(
-    public dialogRef: MatDialogRef<EditCardDialogComponent>,
+    public dialogRef: MatDialogRef<EditPostDialogComponent>,
     @Inject(MAT_DIALOG_DATA) private data: Post,
   ) {}
 
