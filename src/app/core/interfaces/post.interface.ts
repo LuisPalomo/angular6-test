@@ -8,3 +8,11 @@ export interface Post {
   long: string;
   image_url: string;
 }
+
+export interface PostPayload {
+  title: string;
+  content: string;
+  lat: string;
+  long: string;
+  image_url: string;
+}
