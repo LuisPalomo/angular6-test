@@ -1,18 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  MatToolbarModule,
-  MatIconModule,
-  MatButtonModule,
-  MatSidenavModule,
-  MatListModule,
-  MatCardModule,
-  MatDialogModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatSnackBarModule
-} from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatButtonModule, MatSidenavModule, MatListModule,
+  MatCardModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatSnackBarModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
+
+import { FabButtonComponent } from './components/fab-button/fab-button.component';
 
 @NgModule({
   imports: [
@@ -29,7 +21,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatInputModule,
     MatSnackBarModule,
   ],
-  declarations: [],
+  declarations: [
+    FabButtonComponent,
+  ],
   exports: [
     MatToolbarModule,
     MatIconModule,
@@ -42,6 +36,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
+    FabButtonComponent,
   ],
 })
 export class SharedModule { }

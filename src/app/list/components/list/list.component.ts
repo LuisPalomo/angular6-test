@@ -35,6 +35,10 @@ export class ListComponent implements OnInit {
     );
   }
 
+  onAddButtonClicked() {
+
+  }
+
   private retrievePosts() {
     this.posts$ = this.postService.listPosts();
   }
