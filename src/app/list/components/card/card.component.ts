@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
-import { Post } from '../../../core/services/post.service';
+import { Post } from '../../../core/interfaces/post.interface';
 import { EditCardDialogComponent } from '../edit-card-dialog/edit-card-dialog.component';
 
 @Component({
@@ -17,7 +17,7 @@ export class CardComponent {
   openEditDialog(): void {
     const dialogRef = this.dialog.open(EditCardDialogComponent, {
       width: '300px',
-      data: this.post
+      data: this.post,
     });
   }
 }

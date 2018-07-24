@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Post } from '../../../core/services/post.service';
+
+import { Post } from '../../../core/interfaces/post.interface';
 
 @Component({
   selector: 'app-edit-card-dialog',
@@ -13,7 +14,7 @@ export class EditCardDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EditCardDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: Post
+    @Inject(MAT_DIALOG_DATA) private data: Post,
   ) {}
 
   ngOnInit() {
