@@ -1,6 +1,20 @@
 <mat-card class="post-card">
   <mat-card-header>
     <mat-card-title>{{ post.title }}</mat-card-title>
+    <div class="title-spacer"></div>
+    <button class="card-menu" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="clickEditButton()">
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+      </button>
+      <button mat-menu-item (click)="clickRemoveButton()">
+        <mat-icon>delete</mat-icon>
+        <span>Remove</span>
+      </button>
+    </mat-menu>
   </mat-card-header>
   <img mat-card-image src="{{ post.image_url }}" alt="{{ 'Image of ' + post.title }}">
   <mat-card-content>
@@ -8,8 +22,4 @@
       {{ post.content }}
     </p>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-button (click)="clickEditButton()">EDIT</button>
-    <button mat-button (click)="clickRemoveButton()">REMOVE</button>
-  </mat-card-actions>
 </mat-card>

@@ -1,3 +1,12 @@
 .post-card {
-    max-width: 250px;
+  max-width: 250px;
+}
+
+.title-spacer {
+  flex-grow: 1;
+}
+
+.card-menu {
+  margin-top: -15px;
+  margin-right: -15px;
 }
