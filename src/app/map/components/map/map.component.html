@@ -4,7 +4,9 @@
            (mapClick)="onAddPoint($event)">
     <agm-marker *ngFor="let post of posts$ | async"
                 [latitude]="post.lat | toNumber"
-                [longitude]="post.long | toNumber">
+                [longitude]="post.long | toNumber"
+                [markerDraggable]="true"
+                (dragEnd)="onDragEnd(post, $event)">
       <agm-info-window>
         <h2>{{post.title}}</h2>
         <img [src]="post.image_url" [alt]="post.title" width="150">

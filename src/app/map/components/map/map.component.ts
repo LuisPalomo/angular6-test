@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MouseEvent } from '@agm/core';
+import { MatSnackBar } from '@angular/material';
 
 import { Post } from '../../../core/interfaces/post.interface';
 import { PostService } from '../../../core/services/post.service';
@@ -21,6 +22,7 @@ export class MapComponent implements OnInit {
   constructor(
     private postService: PostService,
     private postDialogService: PostDialogService,
+    private snackBar: MatSnackBar,
   ) {}
 
   ngOnInit() {
@@ -45,6 +47,23 @@ export class MapComponent implements OnInit {
       long: $event.coords.lng.toString(),
     }).subscribe(
       () => this.retrievePosts(),
+    );
+  }
+
+  onDragEnd(post: Post, $event: MouseEvent) {
+    this.postService.updatePost({
+      ...post,
+      lat: $event.coords.lat.toString(),
+      long: $event.coords.lng.toString(),
+    }).subscribe(
+      (succes) => {
+        this.snackBar.open('SUCCESS', 'Post moved successfully! :)');
+        this.retrievePosts();
+      },
+      (error) => {
+        this.snackBar.open('ERROR', 'Error moving post! :(');
+        this.retrievePosts();
+      }
     );
   }
 
