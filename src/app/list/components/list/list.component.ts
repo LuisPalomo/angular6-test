@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar, MatDialog } from '@angular/material';
 import { Observable } from 'rxjs';
 
 import { Post } from '../../../core/interfaces/post.interface';
 import { PostService } from '../../../core/services/post.service';
-import { EditPostDialogComponent } from '../edit-post-dialog/edit-post-dialog.component';
-import { RemovePostDialogComponent } from '../remove-post-dialog/remove-post-dialog.component';
+import { PostDialogService } from '../../../core/services/post-dialog.service';
 
 @Component({
   selector: 'app-list',
@@ -18,8 +16,7 @@ export class ListComponent implements OnInit {
 
   constructor(
     private postService: PostService,
-    public dialog: MatDialog,
-    private snackBar: MatSnackBar,
+    private postDialogService: PostDialogService,
   ) {}
 
   ngOnInit() {
@@ -27,76 +24,24 @@ export class ListComponent implements OnInit {
   }
 
   onEditCard(post: Post) {
-    const dialogRef = this.dialog.open(EditPostDialogComponent, {
-      width: '300px',
-      data: post,
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.updatePost(result);
-      }
-    });
+    this.postDialogService.openEditDialog(post).subscribe(
+      (success) => this.retrievePosts(),
+      (error) => this.retrievePosts(),
+    );
   }
 
   onRemoveCard(post: Post) {
-    const dialogRef = this.dialog.open(RemovePostDialogComponent, {
-      width: '300px',
-      data: post,
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.removePost(post.id);
-      }
-    });
+    this.postDialogService.openRemoveDialog(post).subscribe(
+      (success) => this.retrievePosts(),
+      (error) => this.retrievePosts(),
+    );
   }
 
   onAddButtonClicked() {
-    const dialogRef = this.dialog.open(EditPostDialogComponent, {
-      width: '300px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.createPost(result);
-      }
-    });
-  }
-
-  private updatePost(post: Post) {
-    this.postService.updatePost(post).subscribe(
-      (success) => {
-        this.requestResult('SUCCESS', 'Post updated successfully! :)');
-      }, (error) => {
-        this.requestResult('ERROR', 'Error updating post! :(');
-      }
+    this.postDialogService.openCreateDialog().subscribe(
+      (success) => this.retrievePosts(),
+      (error) => this.retrievePosts(),
     );
-  }
-
-  private removePost(postId: string) {
-    this.postService.removePost(postId).subscribe(
-      (success) => {
-        this.requestResult('SUCCESS', 'Post removed successfully! :)');
-      }, (error) => {
-        this.requestResult('ERROR', 'Error removing post! :(');
-      }
-    );
-  }
-
-  private createPost(post: Post) {
-    this.postService.createPost(post).subscribe(
-      (success) => {
-        this.requestResult('SUCCESS', 'Post created successfully! :)');
-      }, (error) => {
-        this.requestResult('ERROR', 'Error creating post! :(');
-      }
-    );
-  }
-
-  private requestResult(status: string, message: string) {
-    this.snackBar.open(status, message);
-    this.retrievePosts();
   }
 
   private retrievePosts() {
