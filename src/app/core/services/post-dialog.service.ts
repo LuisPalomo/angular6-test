@@ -70,9 +70,10 @@ export class PostDialogService {
     return isSuccessEmitter;
   }
 
-  openCreateDialog(): EventEmitter<boolean> {
+  openCreateDialog(post?: Post): EventEmitter<boolean> {
     const dialogRef = this.dialog.open(EditPostDialogComponent, {
       width: '300px',
+      data: post
     });
     const isSuccessEmitter = new EventEmitter<boolean>();
 

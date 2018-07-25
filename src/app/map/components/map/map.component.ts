@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MouseEvent } from '@agm/core';
 
 import { Post } from '../../../core/interfaces/post.interface';
 import { PostService } from '../../../core/services/post.service';
@@ -38,8 +39,11 @@ export class MapComponent implements OnInit {
     );
   }
 
-  onAddPoint() {
-    this.postDialogService.openCreateDialog().subscribe(
+  onAddPoint($event: MouseEvent) {
+    this.postDialogService.openCreateDialog({
+      lat: $event.coords.lat.toString(),
+      long: $event.coords.lng.toString(),
+    }).subscribe(
       () => this.retrievePosts(),
     );
   }
