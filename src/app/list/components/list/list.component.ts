@@ -25,22 +25,19 @@ export class ListComponent implements OnInit {
 
   onEditCard(post: Post) {
     this.postDialogService.openEditDialog(post).subscribe(
-      (success) => this.retrievePosts(),
-      (error) => this.retrievePosts(),
+      () => this.retrievePosts(),
     );
   }
 
   onRemoveCard(post: Post) {
     this.postDialogService.openRemoveDialog(post).subscribe(
-      (success) => this.retrievePosts(),
-      (error) => this.retrievePosts(),
+      () => this.retrievePosts(),
     );
   }
 
   onAddButtonClicked() {
     this.postDialogService.openCreateDialog().subscribe(
-      (success) => this.retrievePosts(),
-      (error) => this.retrievePosts(),
+      () => this.retrievePosts(),
     );
   }
 
