@@ -1,17 +1,17 @@
 <mat-card class="post-card">
   <mat-card-header>
-    <mat-card-title>{{ post.title }}</mat-card-title>
+    <mat-card-title><strong>{{ post.title }}</strong></mat-card-title>
     <div class="title-spacer"></div>
     <button class="card-menu" mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="clickEditButton()">
-        <mat-icon>edit</mat-icon>
+        <mat-icon color="primary">edit</mat-icon>
         <span>Edit</span>
       </button>
       <button mat-menu-item (click)="clickRemoveButton()">
-        <mat-icon>delete</mat-icon>
+        <mat-icon color="warn">delete</mat-icon>
         <span>Remove</span>
       </button>
     </mat-menu>

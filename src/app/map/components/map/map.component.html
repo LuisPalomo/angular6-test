@@ -1,7 +1,21 @@
-<agm-map [latitude]="lat"
-         [longitude]="long">
-  <agm-marker *ngFor="let post of posts$ | async"
-              [latitude]="post.lat | toNumber"
-              [longitude]="post.long | toNumber">
-  </agm-marker>
-</agm-map>
+<div class="div-wrapper">
+  <agm-map [latitude]="lat"
+           [longitude]="long">
+    <agm-marker *ngFor="let post of posts$ | async"
+                [latitude]="post.lat | toNumber"
+                [longitude]="post.long | toNumber">
+      <agm-info-window>
+        <h2>{{post.title}}</h2>
+        <img [src]="post.image_url" [alt]="post.title" width="150">
+        <div class="button-row">
+          <button mat-icon-button color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+</div>
